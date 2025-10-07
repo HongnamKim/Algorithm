@@ -44,6 +44,5 @@ def stack_solution(prices):
 
 
 prices = [1, 2, 3, 3, 2, 3]
-print("input: ", prices)
 print(solution(prices))
 print(stack_solution(prices))
