@@ -1,5 +1,4 @@
 from collections import deque
-from functools import cmp_to_key
 
 
 def solution(priorities, location):

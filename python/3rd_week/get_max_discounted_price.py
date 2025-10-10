@@ -1,5 +1,4 @@
 from collections import deque
-from functools import cmp_to_key
 
 shop_prices = [30000, 2000, 1500000]
 user_coupons = [20, 40]
