@@ -4,29 +4,38 @@ from collections import defaultdict
 def solution(tickets):
     graph = defaultdict(list)
 
-    for start, end in tickets:
-        graph[start].append([end, False])
+    for start, to in tickets:
+        graph[start].append([to, False])
 
-    for a in graph:
-        graph[a].sort(key=lambda x: x[0], reverse=True)
+    for start in graph:
+        graph[start].sort()
 
-    print(graph)
+    n = len(tickets) + 1
+    path = ["ICN"]
+    results = []
 
-    visited = []
+    def dfs():
+        if results:
+            return
 
-    stack = ["ICN"]
+        if len(path) == n:
+            results.append(path.copy())
+            return
 
-    while stack:
-        city = stack.pop()
+        last_city = path[-1]
 
-        visited.append(city)
+        for i in range(len(graph[last_city])):
+            if graph[last_city][i][1]:
+                continue
+            path.append(graph[last_city][i][0])
+            graph[last_city][i][1] = True
+            dfs()
+            path.pop()
+            graph[last_city][i][1] = False
 
-        for i in range(len(graph[city])):
-            if not graph[city][i][1]:
-                stack.append(graph[city][i][0])
-                graph[city][i][1] = True
+    dfs()
 
-    return visited
+    return results[0]
 
 
 a = [

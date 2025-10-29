@@ -4,27 +4,18 @@ def solution(word):
     words = []
     path = []
 
-    def dfs(length):
-        if len(path) == length:
-            words.append("".join(path))
+    def dfs():
+        len(path) and words.append("".join(path))
+
+        if len(path) == 5:
             return
 
         for i in range(0, 5):
             path.append(char[i])
-            dfs(length)
+            dfs()
             path.pop()
 
-    for i in range(1, 6):
-        dfs(i)
-
-    words.sort()
-    # print(words)
-    #
-    # test = []
-    # for p in product(char, repeat=3):
-    #     test.append("".join(p))
-    # test.sort()
-    # print(test)
+    dfs()
 
     return words.index(word) + 1
 
