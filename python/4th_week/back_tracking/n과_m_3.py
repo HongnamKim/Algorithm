@@ -2,8 +2,8 @@ import sys
 
 input = sys.stdin.readline
 
-n, m = map(int, input().split())
-# n, m = 4, 2
+# n, m = map(int, input().split())
+n, m = 4, 2
 
 numbers = [i for i in range(1, n + 1)]
 

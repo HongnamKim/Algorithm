@@ -1,6 +1,31 @@
 from collections import defaultdict
 
 
+def solution_stack(tickets):
+    graph = defaultdict(list)
+    for start, to in tickets:
+        graph[start].append(to)
+    for start in graph:
+        graph[start].sort(reverse=True)
+
+    stack = ["ICN"]
+    route = []
+
+    while stack:
+        print(stack)
+        print(graph)
+        cur = stack[-1]
+
+        if graph[cur]:
+            nxt = graph[cur].pop()
+            stack.append(nxt)
+        else:
+            route.append(stack.pop())
+
+    route.reverse()
+    return route
+
+
 def solution(tickets):
     graph = defaultdict(list)
 
@@ -47,4 +72,6 @@ a = [
     ["DDD", "ICN"],
     ["BBB", "AAA"],
 ]
-print(solution(a))
+
+# print(solution(a))
+print(solution_stack(a))
