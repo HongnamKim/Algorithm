@@ -37,9 +37,15 @@ def count_subseq_stack(numbers, s):
     while stack:
         i, total, picked = stack.pop()
         if i == n:
+            # picked 가 False 일 경우 아무것도 더하지 않고 s 에 도달 --> 제외
             if picked and total == s:
                 ans += 1
             continue
 
-        stack.append((i + 1, total + numbers[i], True))
-        stack.append((i + 1, total, picked))
+        stack.append((i + 1, total + numbers[i], True))  # i 번째 숫자 더하기
+        stack.append((i + 1, total, picked))  # i 번째 숫자 스킵
+
+    return ans
+
+
+print(count_subseq_stack(numbers, s))
