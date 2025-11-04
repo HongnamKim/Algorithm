@@ -17,10 +17,10 @@ def solution(msg):
                 if msg:
                     new_index = start + msg[0]
 
-                last_index += 1
-                index[new_index] = last_index
+                    last_index += 1
+                    index[new_index] = last_index
 
-                max_index_key_length = max(len(new_index), max_index_key_length)
+                    max_index_key_length = max(len(new_index), max_index_key_length)
                 break
 
     # print(msg)
@@ -29,7 +29,7 @@ def solution(msg):
     return answer
 
 
-a = "ABABABABABABABAB"
+a = "AA"
 
 aa = solution(a)
 print()
