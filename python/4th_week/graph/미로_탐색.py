@@ -4,22 +4,22 @@ from collections import deque
 
 input = sys.stdin.readline
 
-h, w = map(int, input().split())
+# h, w = map(int, input().split())
+#
+# land = [[0] * w for _ in range(h)]
+#
+# for i in range(h):
+#     line = input()
+#     for j in range(w):
+#         land[i][j] = int(line[j])
 
-land = [[0] * w for _ in range(h)]
-
-for i in range(h):
-    line = input()
-    for j in range(w):
-        land[i][j] = int(line[j])
-
-# h, w = 4, 6
-# land = [
-#     [1, 0, 1, 1, 1, 1],  #
-#     [1, 0, 1, 0, 1, 0],  #
-#     [1, 0, 1, 1, 1, 1],  #
-#     [1, 1, 1, 0, 1, 1],
-# ]
+h, w = 4, 6
+land = [
+    [1, 0, 1, 1, 1, 1],  #
+    [1, 0, 1, 0, 1, 0],  #
+    [1, 0, 1, 1, 1, 1],  #
+    [1, 1, 1, 0, 1, 1],
+]
 
 DIRS = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 
