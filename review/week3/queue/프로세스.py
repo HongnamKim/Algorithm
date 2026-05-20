@@ -19,9 +19,10 @@ def solution(priorities, location):
             queue.popleft()
             priority_queue.popleft()
         else:
-            task = queue.popleft()
-            queue.append(task)
+            queue.rotate(-1)
+
 
 priorities = [1,1,9,1,1,1]
+
 location = 0
 print(solution(priorities, location))
