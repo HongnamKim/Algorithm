@@ -6,23 +6,21 @@ def solution(genres, plays):
     count = defaultdict(int)
     play_list = defaultdict(list)
 
-    for i, items in enumerate(zip(genres, plays)):
-        genre, play = items[0], items[1]
+    for i, (genre, play) in enumerate(zip(genres, plays)):
+        # genre, play = items[0], items[1]
         play_list[genre].append((i, play))
-
-    for genre, play in zip(genres, plays):
         count[genre] += play
+
+    # for genre, play in zip(genres, plays):
+    #     count[genre] += play
 
     sorted_count = sorted(count.items(), key=lambda x: x[1], reverse=True)
 
     for genre, _ in sorted_count:
         l = sorted(play_list[genre], key=lambda x: x[1], reverse= True)
-        c = 0
-        for song in l:
-            answer.append(song[0])
-            c+=1
-            if c == 2:
-                break
+        for song, _ in l[:2]:
+            answer.append(song)
+
 
     return answer
 
