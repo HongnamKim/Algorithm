@@ -1,8 +1,7 @@
 from collections import defaultdict
 
 def smallerNumbersThanCurrent(nums):
-    sorted_nums = sorted(nums)
-    print(sorted_nums)
+    sorted_nums = sorted(set(nums))
 
     count = defaultdict(int)
 
@@ -11,7 +10,6 @@ def smallerNumbersThanCurrent(nums):
             continue
         count[num] = index
 
-    print(count)
     answer = []
     for num in nums:
         answer.append(count[num])
@@ -19,5 +17,5 @@ def smallerNumbersThanCurrent(nums):
     return answer
 
 
-n = [8,1,2,2,3]
+n = [7,7,7,7]
 print(smallerNumbersThanCurrent(n))
