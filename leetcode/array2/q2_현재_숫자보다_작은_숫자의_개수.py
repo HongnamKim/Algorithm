@@ -1,21 +1,19 @@
-from collections import defaultdict
-
 def smallerNumbersThanCurrent(nums):
-    sorted_nums = sorted(set(nums))
+    sorted_nums = sorted(nums)
 
-    count = defaultdict(int)
-
-    for index, num in enumerate(sorted_nums):
-        if count[num] != 0:
-            continue
-        count[num] = index
+    counter = dict()
 
     answer = []
+
+    for index, num in enumerate(sorted_nums):
+        if num not in counter:
+            counter[num] = index
+
     for num in nums:
-        answer.append(count[num])
+        answer.append(counter[num])
 
     return answer
 
 
-n = [7,7,7,7]
+n = [8,1,2,2,3]
 print(smallerNumbersThanCurrent(n))
