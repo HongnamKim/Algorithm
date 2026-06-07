@@ -8,5 +8,23 @@ def finalPrices(prices):
 
     return answer
 
+def solution(prices):
+    answer = [*prices]
+
+    stack = [] # index
+
+    for i in range(len(prices)):
+        while stack and prices[stack[-1]] >= prices[i]:
+            index = stack.pop()
+            answer[index] = prices[index] - prices[i]
+
+        stack.append(i)
+
+    return answer
+
+
+
+
 p = [8,4,6,2,3]
-print(finalPrices(p))
+#print(finalPrices(p))
+print(solution(p))
